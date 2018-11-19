@@ -3,20 +3,29 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+// Common components
+
+import Tabs from './Tabs';
+
 // Styled components
 
 const Head = styled.header`
   width: 100%;
-  height: 50px;
+  height: 100px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
 `;
 
 // Class
 
 class Header extends Component {
   render() {
-    return <Head>{this.props.children}</Head>;
+    return (
+      <Head>
+        <div>Header</div>
+        <Tabs />
+      </Head>
+    );
   }
 }
 
