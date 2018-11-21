@@ -22,14 +22,16 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        <Header>Login</Header>
         <Suspense fallback={<div>Loading...</div>}>
           <PageContent>
             <Router>
-              <Switch>
-                <Route exact path="/" Component={HomeComponent} />
-                <Route path="/user" Component={UserComponent} />
-              </Switch>
+              <div>
+                <Header />
+                <Switch>
+                  <Route exact path="/" Component={HomeComponent} />
+                  <Route path="/user" Component={UserComponent} />
+                </Switch>
+              </div>
             </Router>
           </PageContent>
         </Suspense>

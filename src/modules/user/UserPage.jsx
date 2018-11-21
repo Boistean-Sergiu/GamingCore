@@ -1,9 +1,15 @@
-import React from 'react';
+// NPM and others
 
-export default () => {
-  return (
-    <div>{/* user Profile 
-            user friends?
-            lists*/}</div>
-  );
-};
+import React,{Component} from 'react';
+import { Route, withRouter } from 'react-router-dom'
+
+class User extends Component {
+  render(){
+    return <div>
+      <Route path="/profile" />
+    </div>
+  }
+}
+
+export default withRouter(User)
+

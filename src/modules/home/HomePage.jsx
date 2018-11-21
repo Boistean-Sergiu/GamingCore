@@ -1,4 +1,7 @@
+// NPM and others
+
 import React, { Component } from 'react';
+import { Route, withRouter } from 'react-router-dom'
 
 class Homepage extends Component {
   render() {
@@ -6,4 +9,4 @@ class Homepage extends Component {
   }
 }
 
-export default Homepage;
+export default withRouter(Homepage);
