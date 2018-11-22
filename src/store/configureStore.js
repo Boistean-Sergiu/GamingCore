@@ -5,13 +5,12 @@ import { applyMiddleware, createStore, compose } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
 import ReduxThunk from 'redux-thunk'
 import logger from 'redux-logger'
-import {ApolloClient} from 'apollo-client'
 
 // Common components
 
 import rootReducer from './rootReducer'
-import {setHeader, getApolloClient} from '../helpers'
-import {loadToken} from '../cookies/loadToken'
+import { setHeader, getApolloClient } from '../helpers'
+import { loadToken } from '../cookies/loadToken'
 
 
 export const history = createHistory()
@@ -22,16 +21,16 @@ const client = getApolloClient()
 export default () => {
     const token = loadToken()
     const initialState = {
-        login: {
-            ...token.login
-        }
+        // login: {
+        //     ...token.login
+        // }
     }
 
     if (token) {
         setHeader(token.login.header)
     }
 
-    let store = createStore(rootReducer, initialState, compose(applyMiddleware(client.middleware(),historyMiddleware,ReduxThunk, logger)))
+    let store = createStore(rootReducer, initialState, compose(applyMiddleware(client.middleware(), historyMiddleware, ReduxThunk, logger)))
 
     return store
 }

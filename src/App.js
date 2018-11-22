@@ -1,29 +1,24 @@
 // NPM and others
 
-import React, { Component } from 'react';
-import {ConnectedRouter} from 'react-router-redux'
-import {Route} from 'react-router-dom'
+import React from 'react';
+import { Route } from 'react-router-dom'
 import { ApolloProvider } from 'react-apollo';
 
 // Components
 
-import configureStore, {history} from './store/configureStore'
-import {getApolloClient} from './helpers/getApolloClient'
+import { getApolloClient } from './helpers/getApolloClient'
 
 import './App.css';
 
-import HomePage from './modules/HomePage';
+import HomePage from './modules/HomePage.jsx';
 
-const store = configureStore()
+const client = getApolloClient()
 
-class App extends Component {
-  render() {
-    return <ApolloProvider client={getApolloClient()} store={store}>
-      <ConnectedRouter history={history}>
-          <Route to="/" component={HomePage}/>
-      </ConnectedRouter>
-    </ApolloProvider>
-  }
+export default () => {
+  return (
+    <ApolloProvider client={client}>
+      <Route to="/" component={HomePage} />
+    </ApolloProvider>)
 }
 
-export default App;
+
